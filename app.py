@@ -1,6 +1,33 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import base64
+
+def get_base64(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+def set_background(png_file):
+    bin_str = get_base64(png_file)
+    page_bg_img = f'''
+    <style>
+    .stApp {{
+        background-image: url("data:image/png;base64,{bin_str}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }}
+    [data-testid="stVerticalBlock"] {{
+        background-color: rgba(255, 255, 255, 0.6); 
+        padding: 20px;
+        border-radius: 10px;
+    }}
+    </style>
+    '''
+    st.markdown(page_bg_img, unsafe_allow_html = True)
+
+set_background('background.png')
 
 model = joblib.load('asd_model.pkl')
 
@@ -14,10 +41,13 @@ age = st.sidebar.slider("Age (Months)", 12, 36, 24)
 sex = st.sidebar.selectbox("Sex", options=[0, 1], format_func=lambda x: "Female" if x == 0 else "Male")
 jaundice = st.sidebar.selectbox("Born with Jaundice?", options=[0, 1], format_func=lambda x: "No" if x == 0 else "Yes")
 family = st.sidebar.selectbox("Family History of ASD?", options=[0, 1], format_func=lambda x: "No" if x == 0 else "Yes")
-who = st.sidebar.selectbox("Who is completing this?", options=[0, 1, 2], format_func=lambda x: ["Health Pro", "Family Member", "Self"][x])
-eth = st.sidebar.selectbox("Ethnicity Code (0-10)", options=list(range(11)))
+who_options = ["Health Care Professional", "Family Member", "Self"]
+who = st.sidebar.selectbox("Who is completing this?", options=[0, 1, 2], format_func=lambda x: who_options[x])
+eth_options = ["Middle Eastern","White European","Hispanic","Black","Asian","South Asian","Native Indian","Latino","Mixed","Pacifica","Others"]
+eth = st.sidebar.selectbox("Ethnicity", options=list(range(len(eth_options))), format_func=lambda x: eth_options[x])
 
 st.header("Behavioral Observations")
+processed_answers = {}
 pos_milestone_questions = {
     "A1": "Does your child look at you when you call their name?",
     "A2": "How easy is it for you to get eye contact with your child?",
@@ -31,14 +61,13 @@ pos_milestone_questions = {
 
 for key, text in pos_milestone_questions.items():
     ans = st.radio(text, options=["Yes", "No"], horizontal=True, key=key)
-    # Mapping: Yes -> 0 (Typical), No -> 1 (Autistic Trait)
     processed_answers[key] = 1 if ans == "No" else 0
 
-ans_a8 = st.radio("A8: Would you describe your child's first words as typical or atypical?", 
+ans_a8 = st.radio("Would you describe your child's first words as typical or atypical?", 
                   options=["Typical", "Atypical/Delayed"], horizontal=True, key="A8")
 processed_answers["A8"] = 1 if ans_a8 == "Atypical/Delayed" else 0
 
-ans_a10 = st.radio("A10: Does your child stare at nothing with no apparent purpose or have unusual repetitive movements?", 
+ans_a10 = st.radio("Does your child stare at nothing with no apparent purpose or have unusual repetitive movements?", 
                    options=["Yes", "No"], horizontal=True, key="A10")
 processed_answers["A10"] = 1 if ans_a10 == "Yes" else 0
 
@@ -55,10 +84,10 @@ if st.button("Analyze Results"):
     probability = model.predict_proba(input_data)[0][1]
 
     if prediction == 1:
-        st.error(f"ASD Traits Detected. Confidence: {probability:.2%}")
-        st.write("Advice: Consider seeking professional consultation for a formal assessment.")
+        st.error(f"Potential ASD Traits Detected. Confidence: {probability:.2%}")
+        st.write("Result Analysis: The behavioral patterns entered align with common clinical indicators of ASD.")
     else:
         st.success(f"No ASD Traits Detected. Confidence: {1-probability:.2%}")
-        st.write("Advice: The screening results show no immediate cause for concern.")
+        st.write("Result Analysis: The behavioral patterns entered do not show a strong correlation with ASD indicators.")
 
 st.info("Disclaimer: This is a screening tool, not a clinical diagnosis.")
