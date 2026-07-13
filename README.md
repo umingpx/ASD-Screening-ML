@@ -24,7 +24,7 @@ This repository contains the following components for peer review and replicatio
 *   `asd_model.pkl`: The serialized model weights for the Random Forest classifier.
 *   `Processed_Dataset.csv`: The encoded toddler dataset used for training and validation.
 *   `feature_importance.png`: A visual distribution of behavioral feature weights.
-*   SHAP Integration: Backend logic to interpret Random Forest decision paths and map them to clinical terminology.
+*   `SHAP Integration`: Backend logic to interpret Random Forest decision paths and map them to clinical terminology.
   
 ---
 *Disclaimer: This is a screening tool designed for risk stratification and educational planning. It is not a substitute for professional clinical diagnosis.*
