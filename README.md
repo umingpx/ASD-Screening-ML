@@ -16,12 +16,15 @@ During testing on a 20% hold-out sample, the Random Forest classifier achieved a
 
 In a medical screening context, the 0.97 recall is the primary metric of success, as it suggests a 97% reliability rate in identifying children who may require further professional evaluation. Feature importance analysis indicated that A9 (gestural communication) and A7 (social-emotional reciprocity) were the most influential predictors in the model's decision-making process.
 
+To ensure clinical transparency, the system uses SHAP (SHapley Additive exPlanations) to provide real-time Explainable AI (XAI). This allows clinicians to see exactly which behavioral drivers, such as gestural communication or social reciprocity, influenced each individual prediction.
+
 ## Implementation Details
 This repository contains the following components for peer review and replication:
 *   `app.py`: A Streamlit-based web interface for clinical interaction.
 *   `asd_model.pkl`: The serialized model weights for the Random Forest classifier.
 *   `Processed_Dataset.csv`: The encoded toddler dataset used for training and validation.
 *   `feature_importance.png`: A visual distribution of behavioral feature weights.
+*   SHAP Integration: Backend logic to interpret Random Forest decision paths and map them to clinical terminology.
   
 ---
 *Disclaimer: This is a screening tool designed for risk stratification and educational planning. It is not a substitute for professional clinical diagnosis.*
