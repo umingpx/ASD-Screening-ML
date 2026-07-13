@@ -10,4 +10,6 @@ User privacy is a priority for this project. The current Streamlit deployment is
 *   The model weights (`.pkl`) are used for inference only and do not contain any raw patient data from the training set.
 
 ## Reporting a Vulnerability
-If you discover any security concerns or ethical issues regarding the model's implementation, please contact the lead investigator through a GitHub Issue or via the contact information provided in the project proposal.
+If you discover any security concerns or ethical issues regarding the model's implementation, please contact the lead investigator through a GitHub Issue or via the contact information provided.
+
+Email: trisanawadee@gmail.com
