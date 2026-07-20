@@ -63,15 +63,15 @@ pos_milestone_questions = {
 
 for key, text in pos_milestone_questions.items():
     ans = st.radio(text, options=["Yes ใช่", "No ไม่"], horizontal=True, key=key)
-    processed_answers[key] = 1 if ans == "No" else 0
+    processed_answers[key] = 1 if ans == "No ไม่" else 0
 
 ans_a8 = st.radio("Would you describe your child's first words as typical or atypical?\n\nคุณคิดว่าพัฒนาการด้านการพูดคำแรก ๆ ของลูกเป็นอย่างไร (ปกติ หรือ ล่าช้า/ดูผิดปกติ)", 
                   options=["Typical ปกติ", "Atypical/Delayed ไม่ปกติ"], horizontal=True, key="A8")
-processed_answers["A8"] = 1 if ans_a8 == "Atypical/Delayed" else 0
+processed_answers["A8"] = 1 if ans_a8 == "Atypical/Delayed ไม่ปกติ" else 0
 
 ans_a10 = st.radio("Does your child stare at nothing with no apparent purpose or have unusual repetitive movements?\n\nลูกมีอาการจ้องมองความว่างเปล่าอย่างไม่มีจุดหมาย หรือมีการเคลื่อนไหวร่างกายซ้ำ ๆ ที่ดูผิดปกติบ้างหรือไม่", 
                    options=["Yes ใช่", "No ไม่"], horizontal=True, key="A10")
-processed_answers["A10"] = 1 if ans_a10 == "Yes" else 0
+processed_answers["A10"] = 1 if ans_a10 == "Yes ใช่" else 0
 
 if st.button("Analyze Results"):
     input_data = pd.DataFrame([[
