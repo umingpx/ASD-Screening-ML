@@ -52,24 +52,24 @@ st.header("Behavioral Observations")
 processed_answers = {}
 pos_milestone_questions = {
     "A1": "Does your child look at you when you call their name?\n\nเวลาที่คุณเรียกชื่อลูก ลูกหันมาสบตาหรือมองคุณหรือไม่",
-    "A2": "Is it easy for you to get eye contact with your child?\nปกติแล้ว การสบตากับลูกเป็นเรื่องที่ทำได้ง่าย",
-    "A3": "Does your child point to indicate that s/he wants something?\nลูกมีการชี้บอกเมื่อต้องการสิ่งของ (เช่น ของเล่นที่เอื้อมไม่ถึง) หรือไม่",
-    "A4": "Does your child point to share interest/enjoyment with you?\nลูกมีการชี้ชวนให้คุณดูสิ่งต่าง ๆ เพื่อแบ่งปันความสนใจร่วมกัน (เช่น ชี้ชวนดูนกหรือเครื่องบิน) หรือไม่?",
-    "A5": "Does your child pretend? (e.g., caring for a doll, talking on a toy phone?)\nลูกมีการเล่นสมมติบ้างหรือไม่ (เช่น ทำท่าป้อนข้าวตุ๊กตา หรือหยิบโทรศัพท์ของเล่นมาคุย)",
-    "A6": "Does your child follow where you are looking?\nลูกมีการหันมองตามเมื่อเห็นคุณกำลังจ้องมองไปที่สิ่งใดสิ่งหนึ่งหรือไม่",
-    "A7": "If you are visibly upset, does your child show signs of wanting to comfort you?\nหากคุณหรือคนในครอบครัวมีท่าทีเสียใจหรือร้องไห้ ลูกแสดงอาการอยากเข้ามาปลอบโยนบ้างหรือไม่",
-    "A9": "Does your child use simple gestures (e.g., waving goodbye)?\nลูกมีการใช้ท่าทางง่าย ๆ ในการสื่อสารบ้างหรือไม่ (เช่น โบกมือบ๊ายบาย พยักหน้า หรือส่ายหัว)"
+    "A2": "Is it easy for you to get eye contact with your child?\n\nปกติแล้ว การสบตากับลูกเป็นเรื่องที่ทำได้ง่าย",
+    "A3": "Does your child point to indicate that s/he wants something?\n\nลูกมีการชี้บอกเมื่อต้องการสิ่งของ (เช่น ของเล่นที่เอื้อมไม่ถึง) หรือไม่",
+    "A4": "Does your child point to share interest/enjoyment with you?\n\nลูกมีการชี้ชวนให้คุณดูสิ่งต่าง ๆ เพื่อแบ่งปันความสนใจร่วมกัน (เช่น ชี้ชวนดูนกหรือเครื่องบิน) หรือไม่?",
+    "A5": "Does your child pretend? (e.g., caring for a doll, talking on a toy phone?)\n\nลูกมีการเล่นสมมติบ้างหรือไม่ (เช่น ทำท่าป้อนข้าวตุ๊กตา หรือหยิบโทรศัพท์ของเล่นมาคุย)",
+    "A6": "Does your child follow where you are looking?\n\nลูกมีการหันมองตามเมื่อเห็นคุณกำลังจ้องมองไปที่สิ่งใดสิ่งหนึ่งหรือไม่",
+    "A7": "If you are visibly upset, does your child show signs of wanting to comfort you?\n\nหากคุณหรือคนในครอบครัวมีท่าทีเสียใจหรือร้องไห้ ลูกแสดงอาการอยากเข้ามาปลอบโยนบ้างหรือไม่",
+    "A9": "Does your child use simple gestures (e.g., waving goodbye)?\n\nลูกมีการใช้ท่าทางง่าย ๆ ในการสื่อสารบ้างหรือไม่ (เช่น โบกมือบ๊ายบาย พยักหน้า หรือส่ายหัว)"
 }
 
 for key, text in pos_milestone_questions.items():
     ans = st.radio(text, options=["Yes ใช่", "No ไม่"], horizontal=True, key=key)
     processed_answers[key] = 1 if ans == "No" else 0
 
-ans_a8 = st.radio("Would you describe your child's first words as typical or atypical?\nคุณคิดว่าพัฒนาการด้านการพูดคำแรก ๆ ของลูกเป็นอย่างไร (ปกติ หรือ ล่าช้า/ดูผิดปกติ)", 
+ans_a8 = st.radio("Would you describe your child's first words as typical or atypical?\n\nคุณคิดว่าพัฒนาการด้านการพูดคำแรก ๆ ของลูกเป็นอย่างไร (ปกติ หรือ ล่าช้า/ดูผิดปกติ)", 
                   options=["Typical ปกติ", "Atypical/Delayed ไม่ปกติ"], horizontal=True, key="A8")
 processed_answers["A8"] = 1 if ans_a8 == "Atypical/Delayed" else 0
 
-ans_a10 = st.radio("Does your child stare at nothing with no apparent purpose or have unusual repetitive movements?\nลูกมีอาการจ้องมองความว่างเปล่าอย่างไม่มีจุดหมาย หรือมีการเคลื่อนไหวร่างกายซ้ำ ๆ ที่ดูผิดปกติบ้างหรือไม่", 
+ans_a10 = st.radio("Does your child stare at nothing with no apparent purpose or have unusual repetitive movements?\n\nลูกมีอาการจ้องมองความว่างเปล่าอย่างไม่มีจุดหมาย หรือมีการเคลื่อนไหวร่างกายซ้ำ ๆ ที่ดูผิดปกติบ้างหรือไม่", 
                    options=["Yes ใช่", "No ไม่"], horizontal=True, key="A10")
 processed_answers["A10"] = 1 if ans_a10 == "Yes" else 0
 
