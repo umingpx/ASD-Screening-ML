@@ -39,7 +39,7 @@ st.title("Pediatric ASD Screening Tool")
 st.write("Uses a Machine Learning model to detect ASD traits based on the Q-CHAT-10 criteria.")
 
 st.sidebar.header("Demographics")
-age = st.sidebar.slider("Age (Months)\n\nอายุ (เดือน)", 12, 36, 24)
+age = st.sidebar.slider("Age (Months) อายุ (เดือน)", 12, 36, 24)
 sex = st.sidebar.selectbox("Sex เพศ", options=[0, 1], format_func=lambda x: "Female หญิง" if x == 0 else "Male ชาย")
 jaundice = st.sidebar.selectbox("Born with Jaundice?\n\nมีประวัติภาวะตัวเหลืองหลังคลอดหรือไม่", options=[0, 1], format_func=lambda x: "No ไม่มี" if x == 0 else "Yes มี")
 family = st.sidebar.selectbox("Family History of ASD?\n\nมีประวัติบุคคลในครอบครัวเป็นออทิสติกหรือไม่", options=[0, 1], format_func=lambda x: "No ไม่มี" if x == 0 else "Yes มี")
