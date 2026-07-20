@@ -39,12 +39,12 @@ st.title("Pediatric ASD Screening Tool")
 st.write("Uses a Machine Learning model to detect ASD traits based on the Q-CHAT-10 criteria.")
 
 st.sidebar.header("Demographics")
-age = st.sidebar.slider("Age (Months) อายุ (เดือน)", 12, 36, 24)
+age = st.sidebar.slider("Age (Months)\n\nอายุ (เดือน)", 12, 36, 24)
 sex = st.sidebar.selectbox("Sex เพศ", options=[0, 1], format_func=lambda x: "Female หญิง" if x == 0 else "Male ชาย")
 jaundice = st.sidebar.selectbox("Born with Jaundice?\n\nมีประวัติภาวะตัวเหลืองหลังคลอดหรือไม่", options=[0, 1], format_func=lambda x: "No ไม่มี" if x == 0 else "Yes มี")
 family = st.sidebar.selectbox("Family History of ASD?\n\nมีประวัติบุคคลในครอบครัวเป็นออทิสติกหรือไม่", options=[0, 1], format_func=lambda x: "No ไม่มี" if x == 0 else "Yes มี")
 who_options = ["Health Care Professional\n\nบุคลากรทางการแพทย์", "Family Member\n\nสมาชิกในครอบครัว"]
-who = st.sidebar.selectbox("Who is completing this?", options=[0, 1], format_func=lambda x: who_options[x])
+who = st.sidebar.selectbox("Who is completing this?\n\nผู้ให้ข้อมูล", options=[0, 1], format_func=lambda x: who_options[x])
 eth_options = ["Middle Eastern","White European","Hispanic","Black","Asian","South Asian","Native Indian","Latino","Mixed","Pacifica","Others"]
 eth = st.sidebar.selectbox("Ethnicity เชื้อชาติ", options=list(range(len(eth_options))), format_func=lambda x: eth_options[x])
 
