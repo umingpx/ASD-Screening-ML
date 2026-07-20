@@ -51,7 +51,7 @@ eth = st.sidebar.selectbox("Ethnicity", options=list(range(len(eth_options))), f
 st.header("Behavioral Observations")
 processed_answers = {}
 pos_milestone_questions = {
-    "A1": "Does your child look at you when you call their name?\nเวลาที่คุณเรียกชื่อลูก ลูกหันมาสบตาหรือมองคุณหรือไม่",
+    "A1": "Does your child look at you when you call their name?\n\nเวลาที่คุณเรียกชื่อลูก ลูกหันมาสบตาหรือมองคุณหรือไม่",
     "A2": "Is it easy for you to get eye contact with your child?\nปกติแล้ว การสบตากับลูกเป็นเรื่องที่ทำได้ง่าย",
     "A3": "Does your child point to indicate that s/he wants something?\nลูกมีการชี้บอกเมื่อต้องการสิ่งของ (เช่น ของเล่นที่เอื้อมไม่ถึง) หรือไม่",
     "A4": "Does your child point to share interest/enjoyment with you?\nลูกมีการชี้ชวนให้คุณดูสิ่งต่าง ๆ เพื่อแบ่งปันความสนใจร่วมกัน (เช่น ชี้ชวนดูนกหรือเครื่องบิน) หรือไม่?",
