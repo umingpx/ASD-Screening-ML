@@ -135,7 +135,8 @@ if st.button("Analyze Results"):
         ax.grid(axis='x', linestyle='--', alpha=0.4)
         plt.tight_layout()
         st.pyplot(fig)
-        st.write("**XAI Analysis:** This chart identifies which specific clinical indicators drove the AI's risk assessment. **RED** represents traits associated with ASD, while **GREEN** represents typical developmental markers.")
+        st.write("**XAI Analysis:** This chart identifies which specific clinical indicators drove the AI's risk assessment. **RED** represents traits associated with ASD, while **GREEN** represents typical developmental markers.\n")
+        st.write("**การวิเคราะห์ด้วย XAI:** แผนภูมินี้แสดงให้เห็นว่าตัวบ่งชี้ทางคลินิกใดที่มีผลต่อการประเมินความเสี่ยงของระบบ AI โดยแถบสี**แดง**แทนลักษณะที่สัมพันธ์กับภาวะออทิซึม และแถบสี**เขียว**แทนลักษณะพัฒนาการตามวัยปกติ")
 
     except Exception as e:
         st.warning("Clinical reasoning chart is unavailable for this specific profile.")
