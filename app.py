@@ -143,10 +143,10 @@ if st.button("Analyze Results"):
     # END OF SHAP EXPANSION
 
     if prediction == 1:
-        st.error(f"Potential ASD Traits Detected. Confidence: {probability:.2%}")
-        st.write("Result Analysis: The behavioral patterns entered align with common clinical indicators of ASD.")
+        st.error(f"Potential ASD Traits Detected. Confidence: {probability:.2%}\n\nตรวจพบพฤติกรรมที่เข้าข่ายภาวะออทิซึม (ความเชื่อมั่นของผลลัพธ์: {probability:.2%})")
+        st.write("Result Analysis: The behavioral patterns entered align with common clinical indicators of ASD.\n\nการวิเคราะห์ผล: รูปแบบพฤติกรรมที่ระบุมีความสอดคล้องกับตัวบ่งชี้ทางคลินิกทั่วไปของภาวะออทิซึม")
     else:
-        st.success(f"No ASD Traits Detected. Confidence: {1-probability:.2%}")
-        st.write("Result Analysis: The behavioral patterns entered do not show a strong correlation with ASD indicators.")
+        st.success(f"No ASD Traits Detected. Confidence: {1-probability:.2%}\n\nไม่พบพฤติกรรมที่บ่งชี้ภาวะออทิซึม (ความเชื่อมั่นของผลลัพธ์: {1-probability:.2%})")
+        st.write("Result Analysis: The behavioral patterns entered do not show a strong correlation with ASD indicators.\n\nการวิเคราะห์ผล: รูปแบบพฤติกรรมที่ระบุไม่มีความสัมพันธ์อย่างมีนัยสำคัญกับตัวบ่งชี้ภาวะออทิซึม")
 
-st.info("Disclaimer: This is a screening tool, not a clinical diagnosis.")
+st.info("Disclaimer: This is a screening tool, not a clinical diagnosis.\n\nหมายเหตุ: เครื่องมือนี้ใช้สำหรับการคัดกรองเบื้องต้นเท่านั้น ไม่สามารถใช้แทนการวินิจฉัยทางการแพทย์โดยแพทย์ผู้เชี่ยวชาญได้")
